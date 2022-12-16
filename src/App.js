@@ -6,7 +6,7 @@ import Body from './components/sections/Body';
 import Navbar from './components/layout/Navbar';
 import Search from './pages/Search';
 // import Signup from './components/Signup';
-import Signup from './pages/Sign';
+import Sign from './pages/Sign';
 function App() {
 
  
@@ -20,7 +20,7 @@ function App() {
    {/* <Search /> */}
 
 
-<Signup />
+<Sign />
    
 
 

@@ -28,8 +28,17 @@ export default function Sign(){
   };
     return(
         <>
-        <section>
-            <h1>Results for “Web development”:</h1>
+        <section  className="flex flex-col items-center gap-20 py-44">
+          <h1 className="text-[#3FBEA7] font-bold text-3xl">Sign up</h1>
+          
+            
+            <form className="flex flex-col gap-3 w-1/3">
+              <input placeholder="Names" type="text" className="border py-2 px-5 outline-none rounded"/>
+              <input placeholder="Email" type="email" className="border py-2 px-5 outline-none rounded"/>
+              <input placeholder="type" type="text" className="border py-2 px-5 outline-none rounded"/>
+              <input placeholder="password" type="password" className="border py-2 px-5 outline-none rounded"/>
+    <button className="bg-[#3FBEA7] py-3 text-white font-bold rounded">Send</button>
+            </form>
         </section>
         </>
     )
