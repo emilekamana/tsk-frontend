@@ -8,14 +8,14 @@ export default function Sign(){
     setEmail(e.target.value);
   }
 
-  const [name, setName] = useState("");
-  const onChangeName = (e) => {
-    setEmail(e.target.value);
+  const [names, setNames] = useState("");
+  const onChangeNames = (e) => {
+    setNames(e.target.value);
   }
 
-  const [tyoe, setType] = useState("");
-  const onChangeType = (e) => {
-    setEmail(e.target.value);
+  const [types, setTypes] = useState("");
+  const onChangeTypes = (e) => {
+    setTypes(e.target.value);
   }
 
   const [password, setPassword] = useState("");
@@ -24,8 +24,27 @@ export default function Sign(){
   };
 
   const signUpUser = async (data) => {
-    const res = await axios.post("/user/", data);
+    console.log(data);
+    const res = await axios.post("/user", data);
     console.log(res);
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const regData = {
+      names: names,
+      email: email,
+      password: password,
+      types: types,
+    };
+    signUpUser(regData);
+    // console.log(regData);
+    setEmail("");
+    setNames("");
+    setPassword("");
+    setTypes("");
+    // navigate('/login')
+
   };
     return(
         <>
@@ -35,11 +54,11 @@ export default function Sign(){
           
             
             <form className="flex flex-col gap-3 w-1/3">
-              <input placeholder="Names" type="text" className="border py-2 px-5 outline-none rounded"/>
-              <input placeholder="Email" type="email" className="border py-2 px-5 outline-none rounded"/>
-              <input placeholder="type" type="text" className="border py-2 px-5 outline-none rounded"/>
-              <input placeholder="password" type="password" className="border py-2 px-5 outline-none rounded"/>
-    <button className="bg-[#3FBEA7] py-3 text-white font-bold rounded">Send</button>
+              <input placeholder="Names" type="text" name="names" onChange={onChangeNames} className="border py-2 px-5 outline-none rounded"/>
+              <input placeholder="Email" type="email" name="email" onChange={onChangeEmail} className="border py-2 px-5 outline-none rounded"/>
+              <input placeholder="type" type="text" name="types" onChange={onChangeTypes} className="border py-2 px-5 outline-none rounded"/>
+              <input placeholder="password" type="password" name="password" onChange={onChangePass} className="border py-2 px-5 outline-none rounded"/>
+    <button className="bg-[#3FBEA7] py-3 text-white font-bold rounded" onClick={(e) => onSubmit(e)} type="submit">Send</button>
             </form>
         </section>
         </>
