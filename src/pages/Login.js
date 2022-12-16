@@ -4,7 +4,7 @@ import Navbar from "../components/layout/Navbar";
 
 export default function Login(){
   const [email, setEmail] = useState("");
-  const onChangeEMail = (e) => {
+  const onChangeEmail = (e) => {
     setEmail(e.target.value);
   }
 
@@ -15,10 +15,26 @@ export default function Login(){
 
   const loginUser = async (data) => {
     const res = await axios.post("/auth/login", data);
-    console.log(res);
-    localStorage.setItem("user", res.user);
-    localStorage.setItem("acess-token", res.accessToken);
-    localStorage.setItem("refresh-token", res.refreshToken);
+    console.log(res.data);
+    localStorage.setItem("user", res.data.user);
+    localStorage.setItem("acess-token", res.data.accessToken);
+    localStorage.setItem("refresh-token", res.data.refreshToken);
+  };
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    const loginData = {
+      email: email,
+      password: password,
+    };
+    setEmail("");
+    setPassword("");
+    try {
+      await loginUser(loginData);
+      // navigate(to || "/allblogs");
+    } catch (error) {
+      // setErr(error?.response?.data?.errors || error.message);
+    }
   };
     return(
         <>
@@ -28,9 +44,9 @@ export default function Login(){
           
             
             <form className="flex flex-col gap-3 w-1/3">
-              <input placeholder="Email" type="email" className="border py-2 px-5 outline-none rounded"/>
-              <input placeholder="password" type="password" className="border py-2 px-5 outline-none rounded"/>
-    <button className="bg-[#3FBEA7] py-3 text-white font-bold rounded">Send</button>
+              <input placeholder="Email" type="email" name="email" onChange={onChangeEmail} className="border py-2 px-5 outline-none rounded"/>
+              <input placeholder="password" type="password" name="password" onChange={onChangePass} className="border py-2 px-5 outline-none rounded"/>
+    <button className="bg-[#3FBEA7] py-3 text-white font-bold rounded" type="submit" onClick={(e) => onSubmit(e)}>Send</button>
             </form>
         </section>
         </>

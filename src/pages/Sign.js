@@ -26,16 +26,16 @@ export default function Sign(){
   const signUpUser = async (data) => {
     console.log(data);
     const res = await axios.post("/user", data);
-    console.log(res);
+    console.log(res.data);
   };
 
   const onSubmit = (e) => {
     e.preventDefault();
     const regData = {
       names: names,
-      email: email,
-      password: password,
       types: types,
+      password: password,
+      email: email,
     };
     signUpUser(regData);
     // console.log(regData);
