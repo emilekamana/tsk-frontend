@@ -22,7 +22,7 @@ export default function Workers(){
       const getWorkers = async () => {
         try {
           const res = await axiosBase.get("/worker");
-          console.log(res.data)
+          console.log("resr", res.data)
             setWorkers(res.data)
   
         //   const data = res.data.data.allDocuments
@@ -40,14 +40,18 @@ export default function Workers(){
         <>
 
         {workers ? (
-            <div>
+            <div className="flex gap-10 py-4 ">
                 {workers.map((worker, index) => {
                     return (
-                        <div key={index}>
-                            <p>{worker.name}</p>
-                            <p>{worker.longBio}</p>
-                            <img src={worker.image.secure_url} />
-                            <button onClick={()=> handleProfile(worker)} className="bg-red-500 text-white font-bold py-3 px-6" >View Profile</button>
+                        <div key={index} className="rounded-xl w-[18rem] border shadow-xl ">
+                            <img src={worker?.image?.secure_url} className="w-full h-[20vh]" />
+                            <div className="flex flex-col gap-1 px-5 py-5 bg-white border rounded-t-[30px]">
+                           <div className="flex gap-2 items-center"> <img src={user} className="w-12 h-12" /> <p className="">{worker.names}</p> </div>
+                            <p className="px-10">{worker.longBio}</p>
+                            <button onClick={()=> handleProfile(worker)} className="border border-[#3FBEA7] rounded text-[#3FBEA7] font-bold py-3 px-6" >View Profile</button>
+
+
+                            </div>
                             </div>
                     )
                 })}

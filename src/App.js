@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 // import Signup from './components/Signup';
 import Sign from './pages/Sign';
 import Login from './pages/Login';
+import Profile from './pages/Profile';
 function App() {
 
  
@@ -21,6 +22,7 @@ function App() {
         <Route path="/body" element={<Body />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Sign />} />
+        <Route path="/profile" element={<Profile />} />
 
 
       </Routes>

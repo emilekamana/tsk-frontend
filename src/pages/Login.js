@@ -1,13 +1,13 @@
 import axios from "../api";
 import React, { useState } from "react";
 import Navbar from "../components/layout/Navbar";
-
+import { useNavigate } from "react-router-dom";
 export default function Login(){
   const [email, setEmail] = useState("");
   const onChangeEmail = (e) => {
     setEmail(e.target.value);
   }
-
+const navigate = useNavigate()
   const [password, setPassword] = useState("");
   const onChangePass = (e) => {
     setPassword(e.target.value);
@@ -16,8 +16,8 @@ export default function Login(){
   const loginUser = async (data) => {
     const res = await axios.post("/auth/login", data);
     console.log(res.data);
-    localStorage.setItem("user", res.data.user);
-    localStorage.setItem("acess-token", res.data.accessToken);
+    localStorage.setItem("user", JSON.stringify(res.data.user) );
+    localStorage.setItem("acess-token", res.data.accessToken );
     localStorage.setItem("refresh-token", res.data.refreshToken);
   };
 
@@ -31,7 +31,7 @@ export default function Login(){
     setPassword("");
     try {
       await loginUser(loginData);
-      // navigate(to || "/allblogs");
+      navigate("/body");
     } catch (error) {
       // setErr(error?.response?.data?.errors || error.message);
     }

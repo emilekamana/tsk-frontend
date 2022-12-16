@@ -1,5 +1,5 @@
 import job from "../assets/job.png"
-export default function Signup(){
+export default function Signup({worker, setOpenModal}){
     return(
         <>
         <section className="flex justify-between py-20 ">

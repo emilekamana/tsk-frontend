@@ -7,6 +7,9 @@ import search from '../../assets/search.png'
 // import { useNavigate } from "react-router-dom";
 
 export default function Navbar() {
+  let user = JSON.parse(localStorage.getItem("user"))
+
+  // console.log("logged in user", localStorage.user)
   // const navigate = useNavigate();
 
   // let [user, setState] = useState("")
@@ -44,12 +47,13 @@ export default function Navbar() {
         <li><Link to="/search">Search</Link></li>
         <li><Link to="/login">Login</Link></li>
         <li><Link to="/signup">Sign up</Link></li>
+
+        {user ? <Link to="/profile">Profile</Link> : <></>}
       </ul>
 
       <div className="flex items-center gap-4">
-        <img src={user} className="w-12 h-12" />
         <div className=" flex gap-2 items-center">
-          <p>Username</p> <img src={arrow} />
+          <p>{user.names}</p> 
           </div>
       </div>
      </nav>
