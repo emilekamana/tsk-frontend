@@ -5,6 +5,8 @@ import Categories from './components/Categories';
 import Body from './components/sections/Body';
 import Navbar from './components/layout/Navbar';
 import Search from './pages/Search';
+// import Signup from './components/Signup';
+import Signup from './pages/Sign';
 function App() {
 
  
@@ -15,7 +17,11 @@ function App() {
 
    <Body /> */}
 
-   <Search />
+   {/* <Search /> */}
+
+
+<Signup />
+   
 
 
 
