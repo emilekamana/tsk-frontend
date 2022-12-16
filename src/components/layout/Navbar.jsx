@@ -40,9 +40,10 @@ export default function Navbar() {
     <nav className="items-center py-5 bg-black   fixed   text-white font-bold flex flex-row justify-between w-full  px-20">
       <h1>Logo</h1>
       <ul className=" flex gap-10 justify-center">
-        <li>Services</li>
-        <li>About us</li>
-        <li>Contact</li>
+        <li><Link to="/services">Services</Link></li>
+        <li><Link to="/search">Search</Link></li>
+        <li><Link to="/login">Login</Link></li>
+        <li><Link to="/signup">Sign up</Link></li>
       </ul>
 
       <div className="flex items-center gap-4">
@@ -52,15 +53,15 @@ export default function Navbar() {
           </div>
       </div>
      </nav>
-      <img src={hea} />
+      {/* <img src={hea} /> */}
     
      
 
-     <div className="absolute flex  bg-black opacity-50 h-full w-full  top-0"></div>
+     {/* <div className="absolute flex  bg-black opacity-50 h-full w-full  top-0"></div>
      <div className="flex  absolute justify-between  top-[50%] left-[35%] w-[30rem] ">
       <input placeholder="What services are you looking for?" className="relative w-[100%] outline-none border border-[#3FBEA7] rounded-md py-3 px-5 bg-white "></input>
       <img className="absolute right-4 top-2 w-8 h-8" src={search} />
-     </div>
+     </div> */}
      
      </header>
 

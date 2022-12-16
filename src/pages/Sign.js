@@ -1,5 +1,6 @@
 import axios from "../api";
 import React, { useState } from "react";
+import Navbar from "../components/layout/Navbar";
 
 export default function Sign(){
   const [email, setEmail] = useState("");
@@ -28,6 +29,7 @@ export default function Sign(){
   };
     return(
         <>
+        <Navbar />
         <section  className="flex flex-col items-center gap-20 py-44">
           <h1 className="text-[#3FBEA7] font-bold text-3xl">Sign up</h1>
           

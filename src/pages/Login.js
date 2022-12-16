@@ -1,5 +1,6 @@
 import axios from "../api";
 import React, { useState } from "react";
+import Navbar from "../components/layout/Navbar";
 
 export default function Login(){
   const [email, setEmail] = useState("");
@@ -21,12 +22,15 @@ export default function Login(){
   };
     return(
         <>
-        <section>
-            <h1>Results for “Web development”:</h1>
-            <form>
-              <input className="border py-2 px-4 " placeholder="Email" type="email"/>
-              <input className="border py-2 px-4 " placeholder="password" type="password" />
-              <button>Send</button>
+        <Navbar />
+          <section  className="flex flex-col items-center gap-20 py-44">
+          <h1 className="text-[#3FBEA7] font-bold text-3xl">Login</h1>
+          
+            
+            <form className="flex flex-col gap-3 w-1/3">
+              <input placeholder="Email" type="email" className="border py-2 px-5 outline-none rounded"/>
+              <input placeholder="password" type="password" className="border py-2 px-5 outline-none rounded"/>
+    <button className="bg-[#3FBEA7] py-3 text-white font-bold rounded">Send</button>
             </form>
         </section>
         </>
