@@ -53,7 +53,7 @@ export default function Navbar() {
 
       <div className="flex items-center gap-4">
         <div className=" flex gap-2 items-center">
-          <p>{user.names}</p> 
+          <p>{user?.names}</p> 
           </div>
       </div>
      </nav>
