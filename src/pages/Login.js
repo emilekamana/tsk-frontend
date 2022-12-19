@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import Navbar from "../components/layout/Navbar";
 import { useNavigate } from "react-router-dom";
 export default function Login(){
+  localStorage.clear();
+
   const [email, setEmail] = useState("");
   const onChangeEmail = (e) => {
     setEmail(e.target.value);
@@ -19,6 +21,10 @@ const navigate = useNavigate()
     localStorage.setItem("user", JSON.stringify(res.data.user) );
     localStorage.setItem("acess-token", res.data.accessToken );
     localStorage.setItem("refresh-token", res.data.refreshToken);
+    if(res.data.user.types === 'CLIENT')
+    navigate("/body");
+    else
+    navigate('/activity');
   };
 
   const onSubmit = async (e) => {

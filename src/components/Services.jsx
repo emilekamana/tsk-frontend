@@ -4,7 +4,7 @@ import job from '../assets/job.png'
 export default function Services(){
     return(
         <>
-        <section className="py-20">
+        <section className="py-20 overflow-x-scroll">
         <h1 className="font-bold text-2xl py-5">Browse different categories of services:</h1>
 <div className="flex gap-10  ">
         <div className=' flex gap-12 '>

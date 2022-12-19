@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, redirect } from "react-router-dom";
 import { useState, useEffect } from "react";
 import user from '../../assets/user.png'
 import arrow from '../../assets/arrow.png'
@@ -43,12 +43,25 @@ export default function Navbar() {
     <nav className="items-center py-5 bg-black   fixed   text-white font-bold flex flex-row justify-between w-full  px-20">
       <h1>Logo</h1>
       <ul className=" flex gap-10 justify-center">
-        <li><Link to="/services">Services</Link></li>
-        <li><Link to="/search">Search</Link></li>
+        {/* <li><Link to="/services">Services</Link></li> */}
+        
+        {user? 
+        <>
+        {user.types === 'CLIENT'? 
+        <>
+          <li><Link to="/body">Home</Link></li>
+          <li><Link to="/search">Browse</Link></li>
+        </>
+        :<></> }
+        {user.types === 'WORKER'? 
+          <Link to="/activity">Activity</Link>
+        :<></> }
+        <Link to="/login">Logout</Link>
+        </>
+        : 
+        <>
         <li><Link to="/login">Login</Link></li>
-        <li><Link to="/signup">Sign up</Link></li>
-
-        {user ? <Link to="/profile">Profile</Link> : <></>}
+        <li><Link to="/signup">Sign up</Link></li></>}
       </ul>
 
       <div className="flex items-center gap-4">

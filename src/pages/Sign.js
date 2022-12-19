@@ -1,8 +1,12 @@
 import axios from "../api";
 import React, { useState } from "react";
 import Navbar from "../components/layout/Navbar";
+import { useNavigate } from "react-router-dom";
 
 export default function Sign(){
+
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState("");
   const onChangeEmail = (e) => {
     setEmail(e.target.value);
@@ -43,7 +47,7 @@ export default function Sign(){
     setNames("");
     setPassword("");
     setTypes("");
-    // navigate('/login')
+    navigate('/login');
 
   };
     return(
